@@ -1,26 +1,55 @@
-# English Mastery Pro PWA
+# English Mastery Pro V2.0 - Step 2 AI Search
 
-专业英语阅读训练平台，风格接近 Duolingo + Readwise + The Economist + Anki。
+这个版本支持：
+- 输入任意主题
+- 选择 A1-C2 难度
+- 前端调用 `/api/generate-reading`
+- 后端使用 Tavily 搜索网络资料
+- 后端使用 OpenAI 生成阅读文章、词汇、题目、解析和来源
 
-## 功能
-- PWA 安装到安卓桌面
-- 离线使用
-- 主题/难度选择后确认生成文章
-- The Economist 风格 C1 阅读
-- 10 个重点词汇 + 音标 + 例句 + 发音
-- 生词本
-- Anki 式间隔复习：Again / Hard / Good / Easy
-- Readwise 风格高亮笔记
-- 选择题隐藏答案
-- 英文总结与本地写作建议
-- XP、等级、连续打卡、打卡日期
-- 收藏文章、导出数据、暗色模式
+## 文件结构
 
-## 部署
-上传全部文件到 GitHub Pages / Netlify 根目录即可。
+```
+index.html
+manifest.webmanifest
+service-worker.js
+icons/
+api/generate-reading.js
+package.json
+vercel.json
+.env.example
+```
 
-GitHub Pages:
-1. 新建公开仓库
-2. 上传 index.html、manifest.webmanifest、service-worker.js、icons 文件夹
-3. Settings → Pages → Deploy from branch → main / root
-4. 手机 Chrome 打开 Pages 链接 → 添加到主屏幕
+## 部署到 Vercel
+
+### 1. 上传到 GitHub
+把本文件夹全部内容上传到你的 GitHub 仓库根目录。
+
+### 2. 登录 Vercel
+使用 GitHub 账号登录 Vercel。
+
+### 3. Import Project
+选择你的 `english-reading-coach` 仓库。
+
+### 4. 配置 Environment Variables
+在 Vercel 项目设置中添加：
+
+```
+OPENAI_API_KEY=你的 OpenAI API Key
+OPENAI_MODEL=gpt-4.1-mini
+TAVILY_API_KEY=你的 Tavily API Key
+```
+
+### 5. Deploy
+部署完成后，打开 Vercel 提供的网址即可测试。
+
+## 重要说明
+
+GitHub Pages 只能托管静态页面，不能运行 `/api/generate-reading` 后端函数。
+如果继续使用 GitHub Pages，需要把前端请求地址改为你的 Vercel API 地址，例如：
+
+```js
+fetch("https://your-vercel-app.vercel.app/api/generate-reading", ...)
+```
+
+更简单的做法是：整个项目直接部署到 Vercel。

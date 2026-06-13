@@ -1,7 +1,7 @@
 {
-  "name": "English Mastery Pro",
-  "short_name": "English Mastery",
-  "description": "专业英语阅读、词汇、Anki复习与打卡平台",
+  "name": "English Mastery Pro V2.0",
+  "short_name": "Mastery Pro",
+  "description": "联网搜索并生成 A1-C2 每日英语阅读训练内容",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

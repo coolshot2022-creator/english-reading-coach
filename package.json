@@ -1,0 +1,11 @@
+{
+  "name": "english-mastery-pro-v2-ai-search",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {}
+}
